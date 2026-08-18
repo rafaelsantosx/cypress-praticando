@@ -34,5 +34,5 @@ jobs:
       - name: upload relatório
         uses: actions/upload-artifact@v7
         with:
-          name: Relatório
+          name: Relatório test
           path: cypress\reports\html
