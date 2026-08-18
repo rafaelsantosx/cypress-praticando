@@ -43,7 +43,7 @@ describe ('Cadastro de usuário', () => {
 
     it ('Campo senha inválido', () => {
         cadastro_usuario_pages.preencherCampoNome(nome);
-        cadastro_usuario_pages.preencherCampoEmail();
+        cadastro_usuario_pages.preencherCampoEmail(email);
         cadastro_usuario_pages.preencherCampoSenha(invalidData.person[0].senha);
         cadastro_usuario_pages.clicarCadastrar();
         cadastro_usuario_pages.verificarMensagemErro('O campo senha deve ter pelo menos 6 dígitos')
