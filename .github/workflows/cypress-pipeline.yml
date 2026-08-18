@@ -20,7 +20,7 @@ jobs:
 
       # exemplo de execução no terminal
       - name: instalar dependências do projeto
-        run: echo executada
+        run: npm install
 
     # execução e config do projeto
       - name: Cypress run
