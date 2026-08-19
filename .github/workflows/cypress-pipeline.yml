@@ -22,6 +22,9 @@ jobs:
       - name: instalar dependências do projeto
         run: npm install
 
+      - name: Limpar relatórios antigos
+        run: rm -rf cypress/reports
+
     # execução e config do projeto
       - name: Cypress run
         uses: cypress-io/github-action@v7
