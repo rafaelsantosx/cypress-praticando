@@ -8,31 +8,28 @@ on:
 
 jobs:
   # o que vai ser feito nessa pipeline
-  # só teremos um job: rodar os testes
   cypress-run:
     # maquina que será executada
     runs-on: ubuntu-latest
-    #passo a passo para rodar os testes
+    # passo a passo para rodar os testes
     steps:
-      #clone do projeto
+      # clone do projeto (versão atualizada v4)
       - name: checkout/Clone do projeto
-        uses: actions/checkout@v7
+        uses: actions/checkout@v4
 
-      # exemplo de execução no terminal
-      - name: instalar dependências do projeto
-        run: npm install
-
-    # execução e config do projeto
+      # Execução dos testes e gerenciamento de dependências via action oficial do Cypress
       - name: Cypress run
         uses: cypress-io/github-action@v7
         with:
           record: true
+          # Garante que a pasta de relatórios seja limpa/criada corretamente pelo próprio fluxo se necessário
+          # E roda os testes
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
-    # upload do relatorio mocha
+      # upload do relatorio mocha (versão atualizada v4)
       - name: upload relatório
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v4
         with:
-          name: relatório
+          name: relatorio-cypress
           path: cypress/reports/html
